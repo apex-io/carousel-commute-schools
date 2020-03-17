@@ -43,5 +43,10 @@ const FakeUrl = sequelize.define("fakeUrl", {
         url: url
       })
     })
+  }) .then(function () {
+    sequelize.close()
+    console.log('connection closed')
   })
-})();
+  
+})() 
+
