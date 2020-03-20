@@ -1,6 +1,26 @@
 import React from 'react'
 import axios from 'axios'
-import PictureGrid from './pictureGrid.jsx'  // rember this shit "no lower case"
+import Picture from './picture.jsx'  // rember this shit "no lower case"
+import styled from 'styled-components'
+
+
+export const Grid = styled.div`
+`;
+
+export const Row = styled.div`
+  display: flex;
+`;
+
+const media = {
+    xs: (styles) => `@media only screen and (max-width: 480px) {${styles}}`,
+}
+
+export const Col = styled.div`
+  flex: ${(props) => props.size};
+  ${(props) => props.collapse && media[props.collapse](`
+    display: none;
+    `)}
+`;
 
 class RenderPics extends React.Component {
     constructor (props) {
@@ -23,30 +43,30 @@ class RenderPics extends React.Component {
                   fakeUrls: response.data.fakeUrls
             })
           })
+          
     }
-    renderTableData() {
-        return this.state.fakeUrls.map((obj, index) => {
-           const { id, fakeHouseID, url, updatedAt, createdAt } = obj //destructuring
-           return (
-              <tr key={id}>
-                 <td>{id}</td>
-                 <td><img src={url} /></td>
-              </tr>
-           )
-        })
-     }
     
-
+    
      render() {
+       let otherThis = this
         return (
-           <div>
-              <h1 id='title'>React Dynamic Table</h1>
-              <table id='students'>
-                 <tbody>
-                    {this.renderTableData()}
-                 </tbody>
-              </table>
-           </div>
+         <div id="mainContent" className="container">
+           {this.state.fakeUrls.map(function (element, index, collection){
+             console.log(otherThis.state.fakeUrls)
+                    return (
+                        <div>
+                <Row>
+                    <Col size={1}>
+                        <img src={element.url} style={{width: 200, height: 200}}/>
+                    </Col>
+                    <Col size={1} collapse="xs">
+                    <img src={element.url} style={{width: 200, height: 200}} />
+                    </Col>
+                </Row>
+                </div>
+                    )
+                })}
+       </div>
         )
      }
 }
