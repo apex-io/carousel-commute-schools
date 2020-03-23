@@ -1,11 +1,19 @@
 import React from 'react'
+import styled from 'styled-components'
 
-const picture = function (props) {
-    return (
-      <div>
-        <img src={props.image.url} style={{width: 200, height: 200}}/>
-      </div>
-    )
-  }
+
+const picture = (props) => {
+  const styles = {
+    display: 'block',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    height: '600px',
+    backgroundSize: 'cover'
+  };
+
+  return (
+    <img src={props.url} style={styles} />
+  );
+}
 
 export default picture
