@@ -1,9 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import RenderPics from './components/renderPics.jsx'
-import App from './components/responsiveGrid.jsx'
+import SlideShow from './components/slideShow.jsx'
+import Global from "./components/globalStyle.jsx";
+import Home from "./components/Home.jsx";
+
+function App() {
+  return (
+    <>
+      <Global />
+      <Home />
+    </>
+  );
+}
 
 ReactDOM.render(
-    <RenderPics />,
+    <App />,
     document.getElementById('root')
   );
