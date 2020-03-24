@@ -1,6 +1,6 @@
 import React from 'react'
 import Picture from './picture.jsx'
-import Arrow from './arrow.jsx'
+import {Arrow1, Arrow2} from './arrow.jsx'
 
 
 
@@ -41,17 +41,12 @@ class SlideShow extends React.Component {
         
       return (
         <div className="slideshow">
-            <Arrow
-          direction="left"
-          clickFunction={ this.previousSlide }
-          glyph="&#9664;" />
+            <Arrow1 direction="left" clickFunction={ this.previousSlide } />
 
-            <Picture url={ this.props.urls[this.state.currentImageIndex].url}/>
+            <Picture url={this.props.urls[this.state.currentImageIndex].url}/>
 
-            <Arrow
-          direction="right"
-          clickFunction={ this.nextSlide }
-          glyph="&#9654;" />
+            <Arrow2 direction="right" clickFunction={ this.nextSlide }/>
+            
           <h1 onClick={this.props.return} style={{position: 'absolute', top: '10px', right:'10px'}}>X</h1>
 
         </div>

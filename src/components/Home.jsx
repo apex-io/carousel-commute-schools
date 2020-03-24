@@ -2,7 +2,7 @@ import React from "react";
 import axios from 'axios'
 import SlideShow from './slideShow.jsx'
 
-import { Container, Box, BoxTitle, BoxText } from "./stylePage.jsx"; // check these styles!
+import { Container, Box, TopImage, BoxText, TopImageContainer } from "./stylePage.jsx"; // check these styles!
 
 class Home extends React.Component {
   constructor(props) {
@@ -43,14 +43,16 @@ class Home extends React.Component {
       )
     }
     return (
-      
+      <div>
+      <TopImageContainer>
+      <TopImage src={this.state.firstHouse.url}>
+        </TopImage></TopImageContainer>
       <Container>
         {this.state.fakeUrls.map( (obj, index) => (
-        <Box key={index} bgColor='red' image={obj.url}>
-          <img src={obj.url} onClick={() => {this.setState({slideShow: true, currentIndex: index})}} style={{objectFit: 'cover'}}/>
+        <Box src={obj.url} onClick={() => {this.setState({slideShow: true, currentIndex: index})}} key={index} bgColor='red' image={obj.url}>
         </Box>
         ))}
-      </Container>
+      </Container></div>
     );
   }
 }
