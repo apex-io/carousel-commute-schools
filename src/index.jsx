@@ -13,7 +13,9 @@ function App() {
   );
 }
 
+const Carousel = App;
+
 ReactDOM.render(
-    <App />,
-    document.getElementById('root')
+    <Carousel />,
+    document.getElementById('Carousel')
   );

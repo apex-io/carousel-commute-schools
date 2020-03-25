@@ -1,11 +1,12 @@
 const express = require('express')
 const handlers = require('./handlers.js')
 const app = express()
-const port = 3000
+const port = 3001
 const bodyParser = require('body-parser')
+const path = require('path')
 
 
-app.use(express.static('../dist'))
+app.use(express.static(path.resolve(__dirname, '../dist/')));
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
