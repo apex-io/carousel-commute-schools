@@ -1,8 +1,10 @@
 import React from "react";
 import axios from 'axios'
 import SlideShow from './slideShow.jsx'
-
+import Modal from './modal.jsx'
 import { Container, Box, TopImage, BoxText, TopImageContainer } from "./stylePage.jsx"; // check these styles!
+
+
 
 class Home extends React.Component {
   constructor(props) {
@@ -37,11 +39,15 @@ class Home extends React.Component {
   }
 
   render() {
+
     if (this.state.slideShow) {
       return (
-        <SlideShow index={this.state.currentIndex} urls={this.state.fakeUrls} return={this.returnHome}/>
+        <div>
+           <SlideShow index={this.state.currentIndex} urls={this.state.fakeUrls} return={this.returnHome}/>
+        </div>
       )
     }
+    
     return (
       <div>
       <TopImageContainer>
@@ -56,4 +62,5 @@ class Home extends React.Component {
     );
   }
 }
+
 export default Home

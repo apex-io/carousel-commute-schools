@@ -1,6 +1,7 @@
 import React from 'react'
 import Picture from './picture.jsx'
 import {Arrow1, Arrow2} from './arrow.jsx'
+import { Container, Box, TopImage, BoxText, TopImageContainer } from "./stylePage.jsx";
 
 
 
@@ -40,16 +41,17 @@ class SlideShow extends React.Component {
     render () {
         
       return (
-        <div className="slideshow">
+          <TopImageContainer className="slideshow" style={{backgroundColor: 'dimgrey'}}>
             <Arrow1 direction="left" clickFunction={ this.previousSlide } />
-
-            <Picture url={this.props.urls[this.state.currentImageIndex].url}/>
+            <TopImage src={this.props.urls[this.state.currentImageIndex].url}>
+              
+              
+        </TopImage>
 
             <Arrow2 direction="right" clickFunction={ this.nextSlide }/>
             
           <h1 onClick={this.props.return} style={{position: 'absolute', top: '10px', right:'10px'}}>X</h1>
-
-        </div>
+          </TopImageContainer>
       );
     }
   }
